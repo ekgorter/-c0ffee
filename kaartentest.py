@@ -8,12 +8,26 @@ kleur = ["Rood", "Blauw", "Groen", "Geel"]
 
 resultaat = {1: "Geen", 2: "Geen", 3: "Geen", 4: "Geen", 5: "Geen"}
 
-
 temp = []
+temp2 = 1
 
 for land in landen:
     if land == 1:
-        resultaat[1] = kleur[0]
+        resultaat[temp2] = kleur[0]
+    elif land != 1:
+        buurlanden = connecties[land]
+        for buurland in buurlanden:
+            temp = kleur
+            kleurland = resultaat[buurland]
+            print kleurland
+            print temp
+            # Als het land er in voorkomt weghalen en anders niet
+            for kleurland in temp:
+                temp.remove(kleurland)
+                print temp
+            resultaat[temp2] = kleur[0]
+            temp2 += 1
+            print temp2
 
 print resultaat
 
