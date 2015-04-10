@@ -12,10 +12,14 @@ temp = []
 land = 1
 
 for land in landen:
+    # Als eerste land is dan de eerste kleur geven
     if land == 1:
         resultaat[land] = kleur[0]
+    # Als niet het eerste land is de eerste beschikbare kleur geven
     elif land != 1:
+        # Bepaal welke connectes het land heeft
         buurlanden = connecties[land]
+        # Bepaal welke kleuren de connecties hebben
         for buurland in buurlanden:
             temp = kleur
             kleurlanden = resultaat[buurland]
@@ -27,7 +31,6 @@ for land in landen:
             # print temp
         resultaat[land] = temp[0]
     land += 1
-        #print temp2
 
 print resultaat
 
