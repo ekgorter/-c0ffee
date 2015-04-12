@@ -23,12 +23,12 @@ for land in landen:
         for buurland in buurlanden:
             temp = kleur
             kleurlanden = resultaat[buurland]
-            # print kleurlanden
+            print kleurlanden
             print temp
             # Als de kleur in de lijst voorkomt weghalen en anders niet
             if kleurlanden in temp:
                 temp.remove(kleurlanden)
-            print temp
+            # print temp
         resultaat[land] = temp[0]
     land += 1
 
