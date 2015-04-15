@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f2dafa7-2e70-4eab-aecc-c548c0871d0b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GraphInvoerAlgoritme.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KaartkleurFunctie.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KaartkleurenVersie2.py" />
     </list>
     <ignored path="c0ffee.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/NetwerkTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="903" max-vertical-offset="1680">
-              <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+              <caret line="80" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="e#2167#2198#0" expanded="true" />
               </folding>
@@ -38,12 +39,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphInvoerAlgoritme.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/GraphInvoerAlgoritme.py">
+      <file leaf-file-name="KaartkleurenVersie2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/KaartkleurenVersie2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.100629" vertical-offset="0" max-vertical-offset="630">
-              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-              <folding />
+            <state vertical-scroll-proportion="3.1132076" vertical-offset="0" max-vertical-offset="2580">
+              <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+              <folding>
+                <element signature="e#148#179#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,6 +64,8 @@
         <option value="$PROJECT_DIR$/KaartkleurAlgoritmeVersie1.py" />
         <option value="$PROJECT_DIR$/NetwerkTest.py" />
         <option value="$PROJECT_DIR$/GraphInvoerAlgoritme.py" />
+        <option value="$PROJECT_DIR$/KaartkleurFunctie.py" />
+        <option value="$PROJECT_DIR$/KaartkleurenVersie2.py" />
       </list>
     </option>
   </component>
@@ -126,26 +131,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.GraphInvoerAlgoritme">
-    <configuration default="false" name="kaartentest" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="c0ffee" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kaartentest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.KaartkleurenVersie2">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -197,6 +183,44 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="c0ffee" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphInvoerAlgoritme.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="KaartkleurFunctie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="c0ffee" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KaartkleurFunctie.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="KaartkleurenVersie2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="c0ffee" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KaartkleurenVersie2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -325,18 +349,20 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.kaartentest" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.NetwerkTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python.GraphInvoerAlgoritme" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.NetwerkTest" />
+      <item index="2" class="java.lang.String" itemvalue="Python.GraphInvoerAlgoritme" />
+      <item index="3" class="java.lang.String" itemvalue="Python.KaartkleurFunctie" />
+      <item index="4" class="java.lang.String" itemvalue="Python.KaartkleurenVersie2" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.GraphInvoerAlgoritme" />
-        <item index="1" class="java.lang.String" itemvalue="Python.NetwerkTest" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.kaartentest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.KaartkleurenVersie2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.KaartkleurFunctie" />
+        <item index="2" class="java.lang.String" itemvalue="Python.GraphInvoerAlgoritme" />
+        <item index="3" class="java.lang.String" itemvalue="Python.NetwerkTest" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -365,7 +391,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32934928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -469,21 +495,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/KaartkleurFunctie.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8113208" vertical-offset="663" max-vertical-offset="1140">
+          <caret line="70" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GraphInvoerAlgoritme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.062893085" vertical-offset="0" max-vertical-offset="630">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NetwerkTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1680">
-          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="903" max-vertical-offset="1680">
+          <caret line="80" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="e#2167#2198#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GraphInvoerAlgoritme.py">
+    <entry file="file://$PROJECT_DIR$/KaartkleurenVersie2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.100629" vertical-offset="0" max-vertical-offset="630">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="3.1132076" vertical-offset="0" max-vertical-offset="2580">
+          <caret line="99" column="48" selection-start-line="99" selection-start-column="48" selection-end-line="99" selection-end-column="48" />
+          <folding>
+            <element signature="e#148#179#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
