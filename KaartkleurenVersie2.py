@@ -6,6 +6,74 @@ __author__ = 'Elias'
 import matplotlib.pyplot as plt
 import networkx as nx
 
+# Library om csv files te lezen.
+import csv
+
+# Functie om in te voeren landen uit csv file op te slaan in tuple.
+def invoerlanden_uit_csv(csvBestand):
+
+    # Open het csv bestand.
+    f = open(csvBestand)
+
+    # Lees het csv bestand.
+    csv_f = csv.reader(f)
+
+    # List om landen in op te slaan.
+    invoerlanden = []
+
+    # Voeg de waarden uit de eerste kolom in de csv file toe aan de list.
+    for row in csv_f:
+        invoerlanden.append(int(row[0]))
+
+    # Zet de list om in een tuple.
+    invoerlanden = tuple(invoerlanden)
+
+    # Sluit het bestand.
+    f.close()
+
+    # Returnt de tuple met landen.
+    return invoerlanden
+
+# Functie om dictionary met connecties per land te maken vanuit csv file.
+def connecties_uit_csv(csvBestand, invoerlanden):
+
+    # Opent de csv file.
+    f = open(csvBestand)
+
+    # Leest de csv file.
+    csv_f = csv.reader(f)
+
+    # Tijdelijke list waarin de buurlanden worden opgeslagen.
+    temp = []
+
+    # Laat de eerste kolom (de landen) buiten beschouwing, zodat de buurlanden overblijven.
+    for row in csv_f:
+        temp.append(row[1:])
+
+    # List waarin de buurlanden per land als tuples worden opgeslagen.
+    buurlanden = []
+
+    # Zet de buurlanden lists om in tuples.
+    for i in temp:
+        temp2 = []
+        for j in i:
+            temp2.append(int(j))
+        temp2 = tuple(temp2)
+        buurlanden.append(temp2)
+
+    # Dictionary waarin de buurlanden worden gekoppeld aan de landen.
+    connecties = {}
+
+    # Koppelt landen aan buurlanden.
+    for i in invoerlanden:
+        connecties[i] = buurlanden[i - 1]
+
+    # Sluit csv bestand.
+    f.close()
+
+    # Returnt de dictionary met connecties.
+    return connecties
+
 # Functie om landen te "maken".
 def landen_maken(invoerlanden, connecties):
 
@@ -136,13 +204,17 @@ def draw_graph(graph):
 
 ############################ Invoerdata #################################
 
-# To Do: deze data moet worden ingelezen uit een .csv of excel bestand.
+# LET OP: Op dit moment werkt de graph teken functie alleen wanneer de uitkomst
+#           van het kaartkleur algoritme handmatig wordt ingevoerd.
 
-# Alle in te kleuren landen in een tuple.
-invoerlanden = (1, 2, 3, 4, 5)
+# Vul hier het te lezen csv bestand in.
+csvBestand = # bv: '/Users/Elias/Documents/csv.csv'
 
-# Dictionary met voor elk land een tuple met de buurlanden van dat land.
-connecties = {1: (2, 3, 4, 5), 2: (1, 3), 3: (1, 2, 4), 4: (1, 3, 5), 5: (1, 4)}
+# Alle in te kleuren landen in een tuple uit csv file gehaald.
+invoerlanden = invoerlanden_uit_csv(csvBestand)
+
+# Dictionary met voor elk land een tuple met de buurlanden van dat land, uit csv gehaald.
+connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
 # De te gebruiken kleuren.
 kleuren = ["Rood", "Blauw", "Groen", "Geel"]
