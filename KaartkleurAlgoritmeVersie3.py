@@ -16,7 +16,7 @@ def invoerlanden_uit_csv(csvBestand):
     f = open(csvBestand)
 
     # Lees het csv bestand.
-    csv_f = csv.reader(f, delimiter = ';')
+    csv_f = csv.reader(f)
 
     # List om landen in op te slaan.
     invoerlanden = []
@@ -41,7 +41,7 @@ def connecties_uit_csv(csvBestand, invoerlanden):
     f = open(csvBestand)
 
     # Leest de csv file.
-    csv_f = csv.reader(f, delimiter = ';')
+    csv_f = csv.reader(f)
 
     # Tijdelijke list waarin de buurlanden worden opgeslagen.
     temp = []
