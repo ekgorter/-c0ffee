@@ -9,7 +9,8 @@ import networkx as nx
 # Library om csv files te lezen.
 import csv
 
-from operator import itemgetter, attrgetter, methodcaller
+# Library onderdeel om lijst te sorteren op basis van class instance attributes.
+from operator import attrgetter
 
 # Functie om in te voeren landen uit csv file op te slaan in tuple.
 def invoerlanden_uit_csv(csvBestand):
@@ -96,7 +97,7 @@ def landen_maken(invoerlanden, connecties):
     # List om alle landen (van class Land) in op te slaan.
     landen = []
 
-    # Maak voor ieder land een class Land aan en voer de gegeven informatie (naam en buurlanden)
+    # Maak voor ieder land een class Land aan en voer de gegeven informatie (naam, buurlanden en aantal connecties)
     # hierbij in. Voeg ieder land toe aan de list "landen".
     for i in range(len(invoerlanden)):
         landen.append(Land(invoerlanden[i], connecties[i+1], 'geen', len(connecties[i+1])))
@@ -108,7 +109,7 @@ def landen_maken(invoerlanden, connecties):
 def sorteer_landen(landen):
 
     # Sorteert de lijst met landen van hoog naar laag op basis van de aantal_connecties eigenschap.
-    landen = sorted(landen, key=attrgetter('aantal_connecties'), reverse = True)
+    landen = sorted(landen, key = attrgetter('aantal_connecties'), reverse = True)
 
     # Returnt de gesorteerde lijst met landen.
     return landen
@@ -128,7 +129,7 @@ def landen_kleuren(landen, kleuren):
             # Als een buurland een bepaalde kleur heeft wordt deze kleur uit de tijdelijke
             # kleuren list verwijderd.
             try:
-                temp.pop(temp.index(landen[landen[i].buurlanden[j] - 1].kleur))
+                temp.pop(temp.index([land for land in landen if land.naam == landen[i].buurlanden[j]][0].kleur))
 
             # Als een buurland nog geen kleur heeft, of de kleur is al verwijderd, doe dan niks.
             except ValueError:
@@ -224,7 +225,7 @@ def draw_graph(graph, landen):
 #           van het kaartkleur algoritme handmatig wordt ingevoerd.
 
 # Vul hier het te lezen csv bestand in.
-csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/kaart2spiraal.csv'
+csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/kaart1.csv'
 
 # Alle in te kleuren landen in een tuple uit csv file gehaald.
 invoerlanden = invoerlanden_uit_csv(csvBestand)
