@@ -9,6 +9,8 @@ import networkx as nx
 # Library om csv files te lezen.
 import csv
 
+from operator import itemgetter, attrgetter, methodcaller
+
 # Functie om in te voeren landen uit csv file op te slaan in tuple.
 def invoerlanden_uit_csv(csvBestand):
 
@@ -78,17 +80,18 @@ def connecties_uit_csv(csvBestand, invoerlanden):
 def landen_maken(invoerlanden, connecties):
 
     # Ieder land wordt dit type class waarin de eigenschappen van het land worden opgeslagen.
-    # Naam en buurlanden zijn gegeven, kleur moet nog worden bepaald.
+    # Naam en (aantal)buurlanden zijn gegeven, kleur moet nog worden bepaald.
     class Land:
 
-        def __init__(self, naam, buurlanden, kleur = 'geen'):
+        def __init__(self, naam, buurlanden, kleur, aantal_connecties):
 
             self.naam = naam
             self.buurlanden = buurlanden
             self.kleur = kleur
+            self.aantal_connecties = aantal_connecties
 
         def __str__(self):
-            return str((self.naam, self.buurlanden, self.kleur))
+            return str((self.naam, self.buurlanden, self.kleur, self.aantal_connecties))
 
     # List om alle landen (van class Land) in op te slaan.
     landen = []
@@ -96,9 +99,18 @@ def landen_maken(invoerlanden, connecties):
     # Maak voor ieder land een class Land aan en voer de gegeven informatie (naam en buurlanden)
     # hierbij in. Voeg ieder land toe aan de list "landen".
     for i in range(len(invoerlanden)):
-        landen.append(Land(invoerlanden[i], connecties[i+1]))
+        landen.append(Land(invoerlanden[i], connecties[i+1], 'geen', len(connecties[i+1])))
 
     # Returnt de list met landen.
+    return landen
+
+# Functie om landen te sorteren op basis van aantal connecties.
+def sorteer_landen(landen):
+
+    # Sorteert de lijst met landen van hoog naar laag op basis van de aantal_connecties eigenschap.
+    landen = sorted(landen, key=attrgetter('aantal_connecties'), reverse = True)
+
+    # Returnt de gesorteerde lijst met landen.
     return landen
 
 # Functie om de landen de juiste kleur te geven.
@@ -229,6 +241,9 @@ kleuren = ["Rood", "Blauw", "Groen", "Geel"]
 # Maakt de landen van de class Land met naam en connecties, nog zonder kleur.
 landen = landen_maken(invoerlanden, connecties)
 
+# Sorteert landen op aantal connecties van hoog naar laag.
+landen = sorteer_landen(landen)
+
 # Geeft de landen een kleur
 landen = landen_kleuren(landen, kleuren)
 
@@ -241,3 +256,6 @@ for i in range(len(landen)):
 
 # Tekent een graph
 #draw_graph(graphInvoer, landen)
+
+
+
