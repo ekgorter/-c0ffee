@@ -296,7 +296,7 @@ invoerlanden = invoerlanden_uit_csv(csvBestand)
 connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
 # De te gebruiken kleuren.
-kleuren = ["Rood", "Blauw", "Groen", "Geel", 'Paars']
+kleuren = ["Rood", "Blauw", "Groen", "Geel", 'Paars', 'Kirsten']
 
 
 ########################### Aanroepen functies ###############################
