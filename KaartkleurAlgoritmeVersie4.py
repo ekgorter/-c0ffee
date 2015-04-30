@@ -9,6 +9,8 @@ import networkx as nx
 # Library om csv files te lezen.
 import csv
 
+import copy
+
 # Library onderdeel om lijst te sorteren op basis van class instance attributes.
 from operator import attrgetter
 
@@ -114,32 +116,92 @@ def sorteer_landen(landen):
     # Returnt de gesorteerde lijst met landen.
     return landen
 
+# Functie om een dominerende set nodes te vinden.
+def dominating_set(landen):
+
+    dset = []
+    temp = list(landen)
+
+    while len(temp) != 0:
+
+        for i in range(len(temp[0].buurlanden)):
+
+            temp[:] = [land for land in temp if not land.naam == temp[0].buurlanden[i]]
+
+        dset.append(temp.pop(0))
+
+    return dset
+
+# Functie om lijst zo te sorteren dat per dominerende node eerst alle buren kleuren krijgen.
+def sorteer_per_dnode(dset, landen):
+
+    newlist = []
+
+    for i in range(len(dset)):
+
+        newlist.append(dset[i])
+
+        for j in range(len(dset[i].buurlanden)):
+
+            newlist.append(landen[landen.index([land for land in landen if land.naam == dset[i].buurlanden[j]][0])])
+
+    return newlist
+
+#Functie om dominerende set nodes vooraan in gesorteerde lijst te zetten.
+def insert_dset(landen, dset):
+
+    for i in range(len(landen)):
+
+        landen[:] = [land for land in landen if not land in dset]
+
+    while len(dset) != 0:
+
+        landen.insert(0, dset.pop())
+
+    return landen
+
 # Functie om de landen de juiste kleur te geven.
 def landen_kleuren(landen, kleuren):
 
-    # Itereert door ieder land.
-    for i in range(len(landen)):
+    templanden = copy.deepcopy(landen)
+    result = []
 
-        # Voor ieder land wordt een tijdelijke kopie gemaakt van de lijst met kleuren
-        temp = list(kleuren)
+    while len(result) != len(templanden):
 
-        # Bij ieder land wordt door de tuple met de buurlanden van dat land geitereerd.
-        for j in range(len(landen[i].buurlanden)):
+        # Itereert door ieder land.
+        for i in range(len(templanden)):
 
-            # Als een buurland een bepaalde kleur heeft wordt deze kleur uit de tijdelijke
-            # kleuren list verwijderd.
+            # Voor ieder land wordt een tijdelijke kopie gemaakt van de lijst met kleuren
+            temp = list(kleuren)
+
+            # Bij ieder land wordt door de tuple met de buurlanden van dat land geitereerd.
+            for j in range(len(templanden[i].buurlanden)):
+
+                # Als een buurland een bepaalde kleur heeft wordt deze kleur uit de tijdelijke
+                # kleuren list verwijderd.
+                try:
+                    temp.pop(temp.index([land for land in templanden if land.naam == templanden[i].buurlanden[j]][0].kleur))
+
+                # Als een buurland nog geen kleur heeft, of de kleur is al verwijderd, doe dan niks.
+                except ValueError:
+                    "Do nothing"
+
             try:
-                temp.pop(temp.index([land for land in landen if land.naam == landen[i].buurlanden[j]][0].kleur))
+                # Dit land krijgt de eerst mogelijke kleur die nog over is in de tijdelijke kleuren list.
+                templanden[i].kleur = temp[0]
+                result.append(templanden[i])
 
-            # Als een buurland nog geen kleur heeft, of de kleur is al verwijderd, doe dan niks.
-            except ValueError:
-                "Do nothing"
-
-        # Dit land krijgt de eerst mogelijke kleur die nog over is in de tijdelijke kleuren list.
-        landen[i].kleur = temp[0]
+            except IndexError:
+                #print '0', landen[0]
+                #print '1', landen[1]
+                #print '2', landen[2]
+                #print templanden[i]
+                landen.insert(0, landen.pop(i))
+                templanden = copy.deepcopy(landen)
+                result = []
 
     # Returnt list met landen
-    return landen
+    return result
 
 # Functie om een geschikte invoer list te maken voor graph teken functie.
 def graph_invoer(connecties):
@@ -225,7 +287,7 @@ def draw_graph(graph, landen):
 #           van het kaartkleur algoritme handmatig wordt ingevoerd.
 
 # Vul hier het te lezen csv bestand in.
-csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/kaart1.csv'
+csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/kaart3.csv'
 
 # Alle in te kleuren landen in een tuple uit csv file gehaald.
 invoerlanden = invoerlanden_uit_csv(csvBestand)
@@ -234,7 +296,7 @@ invoerlanden = invoerlanden_uit_csv(csvBestand)
 connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
 # De te gebruiken kleuren.
-kleuren = ["Rood", "Blauw", "Groen", "Geel"]
+kleuren = ["Rood", "Blauw", "Groen", "Geel", 'Paars']
 
 
 ########################### Aanroepen functies ###############################
@@ -245,18 +307,24 @@ landen = landen_maken(invoerlanden, connecties)
 # Sorteert landen op aantal connecties van hoog naar laag.
 landen = sorteer_landen(landen)
 
+# Haalt een dominating set uit de lijst met landen.
+#dset = dominating_set(landen)
+
+# Sorteert de lijst zodat per dominerende node eerst alle buren worden gekleurd.
+#landen = sorteer_per_dnode(dset, landen)
+
+# Zet de dominating set vooraan in de landenlijst.
+#landen = insert_dset(landen, dset)
+
 # Geeft de landen een kleur
-landen = landen_kleuren(landen, kleuren)
+resultaat = landen_kleuren(landen, kleuren)
 
 # Toont ieder land in de terminal.
-for i in range(len(landen)):
-    print landen[i]
+for i in range(len(resultaat)):
+    print resultaat[i]
 
 # Maakt de connecties dictionary geschikt om in te voeren in de graph teken functie.
 #graphInvoer = graph_invoer(connecties)
 
 # Tekent een graph
-#draw_graph(graphInvoer, landen)
-
-
-
+#draw_graph(graphInvoer, resultaat)
