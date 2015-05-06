@@ -9,9 +9,10 @@ import networkx as nx
 # Library om csv files te lezen.
 import csv
 
+# Library om kopieen van objecten (classes, lists, etc.) te kunnen maken.
 import copy
 
-# Library onderdeel om lijst te sorteren op basis van class instance attributes.
+# Library onderdeel om lijst te sorteren op basis van class instance attributes (= bv. Land.naam, Land.kleur, etc.).
 from operator import attrgetter
 
 # Functie om in te voeren landen uit csv file op te slaan in tuple.
@@ -119,53 +120,72 @@ def sorteer_landen(landen):
 # Functie om een dominerende set nodes te vinden.
 def dominating_set(landen):
 
+    # dset is de lijst die gevuld wordt met een dominating set, temp een kopie van de lijst met landen.
     dset = []
     temp = list(landen)
 
+    # Gaat door totdat alle landen zijn verwerkt.
     while len(temp) != 0:
 
+        # Itereert door alle buurlanden van het eerste land in de temp lijst.
         for i in range(len(temp[0].buurlanden)):
 
+            # Maakt temp leeg en vult deze opnieuw met alle landen behalve de buurlanden van het eerste land uit de temp lijst.
             temp[:] = [land for land in temp if not land.naam == temp[0].buurlanden[i]]
 
+        # Haalt het eerste land uit de temp lijst en stopt deze in de dset.
         dset.append(temp.pop(0))
 
+    # Returnt de dset.
     return dset
 
 # Functie om lijst zo te sorteren dat per dominerende node eerst alle buren kleuren krijgen.
 def sorteer_per_dnode(dset, landen):
 
+    # Bevat de lijst met landen op de nieuwe manier gesorteerd.
     newlist = []
 
+    # Itereert door alle landen uit de dominerende set.
     for i in range(len(dset)):
 
+        # Zet het huidige land uit de dominerende set in de nieuwe lijst.
         newlist.append(dset[i])
 
+        # Itereert door alle buurlanden van het huidige land uit de dset.
         for j in range(len(dset[i].buurlanden)):
 
+            # Zet de buurlanden van het huidige land uit de dset in de nieuwe lijst onder het huidige land van de dset.
             newlist.append(landen[landen.index([land for land in landen if land.naam == dset[i].buurlanden[j]][0])])
 
+    # Returnt de lijst met de nieuwe volgorde.
     return newlist
 
 #Functie om dominerende set nodes vooraan in gesorteerde lijst te zetten.
 def insert_dset(landen, dset):
 
+    # Haalt alle landen die in dset zitten uit de list met landen.
     for i in range(len(landen)):
 
         landen[:] = [land for land in landen if not land in dset]
 
+    # Pakt steeds de laatste uit de dset en zet hem vooraan in de list met landen, tot dset leeg is.
     while len(dset) != 0:
 
         landen.insert(0, dset.pop())
 
+    # Returnt de nieuwe list met landen.
     return landen
 
 # Functie om de landen de juiste kleur te geven.
 def landen_kleuren(landen, kleuren):
 
+    # Kopie van list met landen.
     templanden = copy.deepcopy(landen)
+
+    # List waar resultaat in komt.
     result = []
 
+    # Ga door totdat alle landen een kleur hebben gekregen.
     while len(result) != len(templanden):
 
         # Itereert door ieder land.
@@ -186,16 +206,15 @@ def landen_kleuren(landen, kleuren):
                 except ValueError:
                     "Do nothing"
 
+            # Dit land krijgt de eerst mogelijke kleur die nog over is in de tijdelijke kleuren list.
             try:
-                # Dit land krijgt de eerst mogelijke kleur die nog over is in de tijdelijke kleuren list.
                 templanden[i].kleur = temp[0]
+                # Voeg land toe aan result list.
                 result.append(templanden[i])
 
+            # Als er geen kleuren meer mogelijk zijn.
             except IndexError:
-                #print '0', landen[0]
-                #print '1', landen[1]
-                #print '2', landen[2]
-                #print templanden[i]
+                # Zet dit land vooraan in de list met landen, reset templanden en result en begin opnieuw.
                 landen.insert(0, landen.pop(i))
                 templanden = copy.deepcopy(landen)
                 result = []
@@ -296,7 +315,7 @@ invoerlanden = invoerlanden_uit_csv(csvBestand)
 connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
 # De te gebruiken kleuren.
-kleuren = ["Rood", "Blauw", "Groen", "Geel", 'Paars', 'Kirsten']
+kleuren = ["Rood", "Blauw", "Groen", "Geel", "Paars"]
 
 
 ########################### Aanroepen functies ###############################
@@ -308,7 +327,10 @@ landen = landen_maken(invoerlanden, connecties)
 landen = sorteer_landen(landen)
 
 # Haalt een dominating set uit de lijst met landen.
-#dset = dominating_set(landen)
+dset = dominating_set(landen)
+
+for i in range(len(dset)):
+    print dset[i]
 
 # Sorteert de lijst zodat per dominerende node eerst alle buren worden gekleurd.
 #landen = sorteer_per_dnode(dset, landen)
