@@ -147,7 +147,7 @@ def clique_zoeker(graph):
 ############################ Invoerdata #################################
 
 # Vul hier het te lezen csv bestand in.
-csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/test.csv'
+csvBestand = '/Users/Elias/Documents/Programmeren/Programmeertheorie/sociale3.csv'
 
 # Alle in te kleuren landen in een tuple uit csv file gehaald.
 invoerlanden = invoerlanden_uit_csv(csvBestand)
