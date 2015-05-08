@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f2dafa7-2e70-4eab-aecc-c548c0871d0b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CliqueZoeker.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HarmonySearchAlgoritme.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KaartkleurAlgoritmeVersie4.py" afterPath="$PROJECT_DIR$/KaartkleurAlgoritmeVersie4.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KaartkleurenBacktracking.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HarmonySearchAlgoritme.py" afterPath="$PROJECT_DIR$/HarmonySearchAlgoritme.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="c0ffee.iws" />
@@ -29,31 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HarmonySearchAlgoritme.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="2760">
-              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CliqueZoeker.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CliqueZoeker.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1770" max-vertical-offset="2565">
-              <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KaartkleurAlgoritmeVersie4.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KaartkleurAlgoritmeVersie4.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KaartkleurAlgoritmeVersie4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.75" vertical-offset="0" max-vertical-offset="5355">
-              <caret line="216" column="62" selection-start-line="216" selection-start-column="62" selection-end-line="216" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="5340">
+              <caret line="59" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="351" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KaartkleurenBacktracking.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/KaartkleurenBacktracking.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71875" vertical-offset="2895" max-vertical-offset="5370">
+              <caret line="216" column="31" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
               <folding>
                 <element signature="e#148#179#0" expanded="true" />
               </folding>
@@ -78,9 +67,10 @@
         <option value="$PROJECT_DIR$/CSVFunctie.py" />
         <option value="$PROJECT_DIR$/KaartkleurenVersie2.py" />
         <option value="$PROJECT_DIR$/KaartkleurAlgoritmeVersie3.py" />
-        <option value="$PROJECT_DIR$/HarmonySearchAlgoritme.py" />
         <option value="$PROJECT_DIR$/CliqueZoeker.py" />
         <option value="$PROJECT_DIR$/KaartkleurAlgoritmeVersie4.py" />
+        <option value="$PROJECT_DIR$/HarmonySearchAlgoritme.py" />
+        <option value="$PROJECT_DIR$/KaartkleurenBacktracking.py" />
       </list>
     </option>
   </component>
@@ -125,26 +115,7 @@
       <console-settings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.HarmonySearchAlgoritme">
-    <configuration default="false" name="KaartkleurenVersie2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="c0ffee" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KaartkleurenVersie2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.KaartkleurenBacktracking">
     <configuration default="false" name="KaartkleurAlgoritmeVersie3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -215,6 +186,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="c0ffee" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HarmonySearchAlgoritme.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="KaartkleurenBacktracking" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="c0ffee" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KaartkleurenBacktracking.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -344,19 +334,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.KaartkleurenVersie2" />
-      <item index="1" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie3" />
-      <item index="2" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie4" />
-      <item index="3" class="java.lang.String" itemvalue="Python.CliqueZoeker" />
-      <item index="4" class="java.lang.String" itemvalue="Python.HarmonySearchAlgoritme" />
+      <item index="0" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie3" />
+      <item index="1" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie4" />
+      <item index="2" class="java.lang.String" itemvalue="Python.CliqueZoeker" />
+      <item index="3" class="java.lang.String" itemvalue="Python.HarmonySearchAlgoritme" />
+      <item index="4" class="java.lang.String" itemvalue="Python.KaartkleurenBacktracking" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.HarmonySearchAlgoritme" />
-        <item index="1" class="java.lang.String" itemvalue="Python.CliqueZoeker" />
-        <item index="2" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie4" />
-        <item index="3" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie3" />
-        <item index="4" class="java.lang.String" itemvalue="Python.KaartkleurenVersie2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.KaartkleurenBacktracking" />
+        <item index="1" class="java.lang.String" itemvalue="Python.HarmonySearchAlgoritme" />
+        <item index="2" class="java.lang.String" itemvalue="Python.CliqueZoeker" />
+        <item index="3" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie4" />
+        <item index="4" class="java.lang.String" itemvalue="Python.KaartkleurAlgoritmeVersie3" />
       </list>
     </recent_temporary>
   </component>
@@ -421,6 +411,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5175">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5190">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2760">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -431,7 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6075">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,26 +643,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
+    <entry file="file://$PROJECT_DIR$/CliqueZoeker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="2760">
-          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-          <folding />
+        <state vertical-scroll-proportion="0.78125" vertical-offset="1770" max-vertical-offset="2565">
+          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CliqueZoeker.py">
+    <entry file="file://$PROJECT_DIR$/HarmonySearchAlgoritme.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1770" max-vertical-offset="2565">
-          <caret line="143" column="33" selection-start-line="143" selection-start-column="33" selection-end-line="143" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3810" max-vertical-offset="5175">
+          <caret line="260" column="73" selection-start-line="260" selection-start-column="73" selection-end-line="260" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KaartkleurAlgoritmeVersie4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.75" vertical-offset="0" max-vertical-offset="5355">
-          <caret line="216" column="62" selection-start-line="216" selection-start-column="62" selection-end-line="216" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="5340">
+          <caret line="59" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="351" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaartkleurenBacktracking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71875" vertical-offset="2895" max-vertical-offset="5370">
+          <caret line="216" column="31" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
           <folding>
             <element signature="e#148#179#0" expanded="true" />
           </folding>
