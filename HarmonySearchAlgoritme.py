@@ -115,10 +115,87 @@ def random_vector_maken(invoerlanden):
     # Vult de vector met een random waarde tussen 1 en 4 (inclusief) voor ieder land.
     for i in range(len(invoerlanden)):
 
-        vector.append(random.randrange(1,5))
+        vector.append(random.randrange(1, kleuren + 1))
 
     # Returnt de vector
     return vector
+
+# Functie om memory te vullen met random vectors.
+def vul_memory(HMS, invoerlanden):
+
+    # List met alle random ingekleurde vectors.
+    memory = []
+
+    # Vult de memory met random ingekleurde vectors t/m het opgegeven aantal.
+    for vector in range(HMS):
+
+        memory.append(random_vector_maken(invoerlanden))
+
+    # Returnt het gevulde memory.
+    return memory
+
+# Functie om nieuwe vector te genereren, met kans op gebruik van geheugen en pitch aanpassing.
+def nieuwe_vector(invoerlanden, HMS, memory, HMCR, PAR, kleuren):
+
+    # De te vullen vector.
+    vector = []
+
+    # Geeft iedere regio in de vector een kleur, random of met gebruik van geheugen/pitch aanpassing.
+    for regio in range(len(invoerlanden)):
+
+        # Bepaalt of kleur uit geheugen wordt gekozen.
+        if random.random() < HMCR:
+
+            # Random kleur uit geheugen.
+            kleur = memory[random.randrange(HMS)][regio]
+
+            # Kans op pitch aanpassing.
+            kleur = pitch_aanpassing(kleur, PAR, kleuren)
+
+            # Geef regio in vector deze kleur.
+            vector.append(kleur)
+
+        # Als geen kleur uit het geheugen wordt gekozen, dan wordt een random kleur gegeven.
+        else:
+
+            vector.append(random.randrange(1, kleuren + 1))
+
+    # Returnt de vector
+    return vector
+
+# Functie om te bepalen of pitch wordt aangepast, en in welke richting.
+def pitch_aanpassing(kleur, PAR, kleuren):
+
+    # Bepaalt of pitch wordt aangepast, aan de hand van pitch aanpassings ratio.
+    if random.random() < PAR:
+
+        # Keuzemogelijkheden voor aanpassen naar links of naar rechts.
+        keuze = ('links', 'rechts')
+
+        # Wanneer naar rechts wordt gekozen.
+        if random.choice(keuze) == 'rechts':
+
+            # Schuif een kleur naar rechts.
+            kleur += 1
+
+            # Als je niet verder naar rechts kunt, schuif dan helemaal naar links.
+            if kleur == kleuren + 1:
+
+                kleur = 1
+
+        # Wanneer naar links wordt gekozen.
+        else:
+
+            # Schuif een kleur naar links.
+            kleur -= 1
+
+            # Als je niet verder naar links kunt, schuif dan helemaal naar rechts.
+            if kleur == 0:
+
+                kleur = kleuren
+
+    # Returnt eventueel aangepaste kleur.
+    return kleur
 
 # Functie om score toe te kennen aan een vector, hoe lager de score hoe beter.
 def vector_score(vector, matrix):
@@ -148,6 +225,36 @@ def vector_score(vector, matrix):
     # Returnt score
     return score
 
+# Functie berekent (een van) de vector(s) in het geheugen met de slechtste score.
+def slechtste_in_memory(memory, matrix):
+
+    # List met alle scores voor de vectors in de memory.
+    scores = []
+
+    # Berekent de score voor iedere vector in de memory en zet deze in scores.
+    for vector in range(HMS):
+
+        scores.append(vector_score(memory[vector], matrix))
+
+    # Geeft de vector uit het geheugen met (een van) de hoogste score(s) uit de lijst met scores.
+    for score in range(HMS):
+
+        if scores[score] == max(scores):
+
+            return score
+
+            # Zorgt dat er maar 1 vector met hoogste score wordt gereturnd, als er meerdere zijn.
+            break
+
+# Functie om nieuw ingekleurde vector in memory te plaatsen als deze beter is dan de slechtste in de memory.
+def vervang_memory(nieuwevector, memory, matrix):
+
+    # Als de nieuwe vector beter is dan de slechtste uit de memory, vervang deze slechtste dan met de nieuwe vector.
+    if vector_score(nieuwevector, matrix) < vector_score(memory[slechtste_in_memory(memory, matrix)], matrix):
+
+        memory.remove(memory[slechtste_in_memory(memory, matrix)])
+        memory.append(nieuwevector)
+
 ############################################ Invoerdata #################################################
 
 # Vul hier het te lezen csv bestand in.
@@ -159,21 +266,74 @@ invoerlanden = invoerlanden_uit_csv(csvBestand)
 # Dictionary met voor elk land een tuple met de buurlanden van dat land, uit csv gehaald.
 connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
-######################################### Aanroepen functies ############################################
+# Aantal te gebruiken kleuren.
+
+kleuren = 4
+
+# Max aantal ingekleurde vectors.
+
+maxvectors = 6000000
+
+# Harmony Memory Size (HMS).
+
+HMS = 10
+
+# Harmony Memory Consideration Rate (HMCR).
+
+HMCR = 0.90
+
+# Pitch Adjustment Rate (PAR).
+
+PAR = 0.15
+
+#################################### Harmony Search Algoritme #############################################
 
 # Maakt connectie matrix uit gegevens csv bestand.
 matrix = connectie_matrix(invoerlanden, connecties)
 
-print 'matrix:'
-for i in range(len(matrix)):
-    print matrix[i]
+# Vult memory met opgegeven aantal random ingekleurde vectors.
+memory = vul_memory(HMS, invoerlanden)
 
-# Genereert een random ingekleurde vector.
-vector = random_vector_maken(invoerlanden)
+# Telt hoeveel vectors tot nu toe zijn ingekleurd.
+vectorcount = 0
 
-print 'vector:', vector
+count = 0
 
-# Geeft een score aan een vector, hoe lager hoe beter.
-score = vector_score(vector, matrix)
+# Stop met kleuren wanneer het maximaal toegestane aantal in te kleuren vectors is bereikt.
+while vectorcount < maxvectors:
 
-print 'score:', score
+    # Genereer nieuwe vector, aan de hand van Harmony Search regels.
+    nieuwevector = nieuwe_vector(invoerlanden, HMS, memory, HMCR, PAR, kleuren)
+
+    # Tel aantal gemaakte vectors.
+    vectorcount += 1
+
+    if vectorcount % 100000 == 0:
+        count += 1
+        print count
+
+    # Als nieuwe vector beter is dan slechtste uit geheugen, vervang deze dan.
+    vervang_memory(nieuwevector, memory, matrix)
+
+    # Als optimaal ingekleurde kaart is gevonden.
+    if vector_score(nieuwevector, matrix) == 0:
+
+        # Geef optimale inkleuring kaart.
+        print 'kaart oplossing: ', nieuwevector
+
+        # Stop het algoritme.
+        break
+
+# Laat zien hoeveel ingekleurde kaarten nodig waren om oplossing te vinden.
+print 'aantal ingekleurde vectors: ', vectorcount
+
+
+
+
+
+
+
+
+
+
+
