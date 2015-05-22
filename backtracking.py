@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 # Library om csv files te lezen.
 import csv
 
+#Import time om runtime te berekenen
+import time
+
 # Library onderdeel om lijst te sorteren op basis van class instance attributes (= bv. Land.naam, Land.kleur, etc.).
 from operator import attrgetter
 
@@ -211,16 +214,16 @@ def landen_kleuren(landen, kleuren):
                 "Do nothing"
 
         if landen[i].kleur != 'geen':
-            print "backtrack: het land ervoor, verander kleur", landen[i]
-            print "temp voor del", temp
+            # print "backtrack: het land ervoor, verander kleur", landen[i]
+            # print "temp voor del", temp
             tempindex = temp.index(landen[i].kleur) + 1
             del temp[:tempindex]
-            print "temp na del", temp
+            # print "temp na del", temp
 
         # Dit land krijgt de eerst mogelijke kleur die nog over is in de tijdelijke kleuren list.
         try:
             landen[i].kleur = temp[0]
-            print "kan wel in kleuren", landen[i]
+            # print "kan wel in kleuren", landen[i]
 
             # Voeg land toe aan result list.
             result.append(landen[i])
@@ -231,13 +234,13 @@ def landen_kleuren(landen, kleuren):
         # Als er geen kleuren meer mogelijk zijn.
         except IndexError:
             if i == 0:
-                print "NOT WAY!"
-                return result
+                # print "NOT WAY!"
+                return ["Geen oplossing mogelijk"]
 
             if landen[i].kleur != 'geen':
                 landen[i].kleur = 'geen'
 
-            print "kan geen kleur krijgen", landen[i]
+            # print "kan geen kleur krijgen", landen[i]
             i -= 1
 
 
@@ -338,7 +341,7 @@ def draw_graph(graph, landen):
 #           van het kaartkleur algoritme handmatig wordt ingevoerd.
 
 # Vul hier het te lezen csv bestand in.
-csvBestand = '/Users/svbeemen/Documents/Programmeren/c0ffee/sociale3.csv'
+csvBestand = 'kaart1_correct.csv'
 
 # Alle in te kleuren landen in een tuple uit csv file gehaald.
 invoerlanden = invoerlanden_uit_csv(csvBestand)
@@ -347,10 +350,12 @@ invoerlanden = invoerlanden_uit_csv(csvBestand)
 connecties = connecties_uit_csv(csvBestand, invoerlanden)
 
 # De te gebruiken kleuren.
-kleuren = ["Rood", "Blauw", "Groen"]
+kleuren = ["Rood", "Blauw", "Groen", "Geel"]
 
 
 ########################### Aanroepen functies ###############################
+
+start_time = time.time()
 
 # Maakt de landen van de class Land met naam en connecties, nog zonder kleur.
 landen = landen_maken(invoerlanden, connecties)
@@ -379,3 +384,5 @@ for i in range(len(resultaat)):
 
 # Tekent een graph
 #draw_graph(graphInvoer, resultaat)
+
+print("--- %s seconds ---" % (time.time() - start_time))
